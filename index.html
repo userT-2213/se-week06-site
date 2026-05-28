@@ -1,7 +1,214 @@
-<!doctype html>
-<meta charset=
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --primary-color: #2b6cb0;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
 
-"utf-8">
-<title>自己紹介</title>
-<h1>あ</h1>
-<p>授業で作成したページです。</p>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            scroll-margin-top: 70px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 6px;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .works-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .work-item {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .theme-toggle-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+
+        /* Dark Theme overrides via JS toggling */
+        body.dark-theme {
+            --bg-color: #1a202c;
+            --text-color: #e2e8f0;
+            --card-bg: #2d3748;
+            --border-color: #4a5568;
+            --primary-color: #63b3ed;
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 0.85rem;
+            }
+            section {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#works">Works</a>
+            <a href="#reflection">Reflection</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>プロフィールページをご覧いただきありがとうございます。論理的な思考とシンプルな構造化を好む開発者です。現在は主にバックエンドのロジック構築や効率的なアルゴリズムの実装に関心を持って取り組んでいます。</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <p>これまでに学習・経験してきた主な技術スタックです。</p>
+            <div class="skills-grid">
+                <div class="skill-card">C / C++</div>
+                <div class="skill-card">HTML5 / CSS3</div>
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">Algorithm</div>
+            </div>
+        </section>
+
+        <section id="works">
+            <h2>Works</h2>
+            <div class="works-list">
+                <div class="work-item">
+                    <h3>ルート・コスト計算ロジックの開発</h3>
+                    <p>多次元配列を用いて、特定の遷移コストや累積コストを算出するアルゴリズムをC言語で実装。条件分岐とループを最適化し、正確なコスト計算を行う仕組みを構築しました。</p>
+                </div>
+                <div class="work-item">
+                    <h3>ポートフォリオサイト (本サイト)</h3>
+                    <p>HTML、CSS、JavaScriptを1ファイルに統合した、レスポンシブ対応の軽量な静的ウェブサイトです。外部依存を排除し、パフォーマンスとポータビリティを重視しました。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflection">
+            <h2>Reflection</h2>
+            <p>開発を行う上で、単に動作するコードを書くだけでなく、「なぜそのロジックが必要なのか」「よりスマートなアプローチはないか」を常に振り返る（Reflection）ことを大切にしています。課題に直面した際は、データ構造を見直したり、処理の最適化を行うことで、堅牢なシステム作りを目指しています。</p>
+        </section>
+
+        <button class="theme-toggle-btn" id="themeToggle">テーマ切り替え</button>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('themeToggle');
+            
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+            });
+        });
+    </script>
+
+</body>
+</html>
